@@ -52,6 +52,12 @@ This is a full-stack web application for managing insurance claims, built with R
    - cd server
    - npm install
 
+ - ### Seed the Database
+   - cd server
+   - node scripts/seedClaim.js
+
+   (This command loads the claim seed data into the database.)
+
  - ### Run Backend:
         - node server.js
         (Backend will run at: http://localhost:5000)

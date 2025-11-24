@@ -1,4 +1,3 @@
-// routes/claimRoutes.js (or claims.js)
 const express = require('express');
 const router = express.Router();
 const Claim = require('../models/Claim');
@@ -53,7 +52,6 @@ router.use(formidable({
   keepExtensions: true,
   maxFileSize: 4 * 1024 * 1024, // 4MB limit, matching frontend
   filter: function ({ name, originalFilename, mimetype }) {
-    // Only allow PDF, JPEG, PNG for paymentFile
     if (name === 'paymentFile' && (mimetype.startsWith('image/') || mimetype === 'application/pdf')) {
       return true;
     }
@@ -113,8 +111,6 @@ router.post("/submit", async (req, res) => {
 
     // Save the updated claim
     await claim.save();
-
-    // Optional: Emit socket event or send email notification here
 
     res.status(200).json({ message: 'Payment submission successful' });
   } catch (err) {

@@ -1,4 +1,3 @@
-// Updated ClaimSection.jsx
 "use client";
 
 import { useState, useEffect, useRef } from "react";

@@ -1,4 +1,3 @@
-// Updated ClaimPage.jsx
 "use client"
 
 import { useEffect, useState } from "react"

@@ -36,12 +36,12 @@ const CustomerSchema = new Schema({
   totalClaims: Number,
   term: String,
   vin: String,
-  status: { type: String, default: 'Active' } // e.g., Active
+  status: { type: String, default: 'Active' } 
 });
 
 const ClaimSchema = new Schema({
   claimNumber: { type: String, required: true, unique: true },
-  type: { type: String, required: true }, // e.g., Mechanical
+  type: { type: String, required: true }, 
   policyNumber: String,
   date: { type: Date, default: Date.now },
 
@@ -79,15 +79,15 @@ const ClaimSchema = new Schema({
   attachments: [String],
 
   payment: {
-    status: { type: String, default: 'pending' },  // e.g., 'submitted', 'processed'
+    status: { type: String, default: 'pending' }, 
     submittedAt: { type: Date },
-    // File Storage (Binary) - replaces fileUrl for direct DB storage
+
     file: {
       data: { type: Buffer },
       contentType: { type: String },
-      fileName: { type: String, trim: true } // Trim filename to prevent unnecessary spaces
+      fileName: { type: String, trim: true } 
     },
-    method: { type: String }  // Optional: 'wire', 'ach', etc. (you can append this in backend)
+    method: { type: String }  
   }
 
 }, { timestamps: true });
